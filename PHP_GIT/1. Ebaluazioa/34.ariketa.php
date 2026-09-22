@@ -5,7 +5,7 @@ $JA=0; $MA=0;
 $JP=0; $MP=0;
 
 function irabazleaAukeratu($aukerak,$JA,$MA,$JP,$MP){
-echo"Jolasa hasiko da...<br>";
+echo"Jolasa hasiko da...<br><br>";
 while ($JP < 3 && $MP < 3) {
     $zbkJ = rand(0,2); $zbkM = rand(0,2);
     $JA= $zbkJ; $MA= $zbkM;
