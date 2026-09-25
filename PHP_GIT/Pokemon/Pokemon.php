@@ -22,7 +22,7 @@ function pokemonEboluzionatuta(&$pokedex,$eboluzionatua){
 
     foreach($pokedex as $gakoa =>$balioa){
         if($balioa["eboluzioa"] === $eboluzionatua){
-            echo "- <strong>" . $gakoa . "</strong> | Mota: " . $balioa["mota"] . " | Maila: " . $balioa["maila"] . "<br>";
+            echo "- <strong>  $gakoa  </strong> | Mota: " . $balioa["mota"] . " | Maila: " . $balioa["maila"] . "<br>";
             $aurkitua = true;
         }
     }
@@ -41,6 +41,15 @@ function mailaIgo(&$pokedex,$izena){
     }
 }
 
+function PokemonAskatu(&$pokedex, $izena){
+if(array_key_exists($izena,$pokedex)){
+    unset($pokedex[$izena]);
+    echo"<br><strong>$izena</strong> askatu da!<br>";
+}else{
+    echo"<br>POKEMON: <strong>$izena</strong> ez dago pokedexean erregistratuta!!<br>";
+}
+}
+
 pokemonGehitu($pokedex, "Pikachu", "Elektrikoa", 25, true);
 pokemonGehitu($pokedex, "Raichu", "Elektrikoa", 35, false);
 pokemonGehitu($pokedex, "Charmander", "Sua", 18, true);
@@ -48,7 +57,12 @@ pokemonGehitu($pokedex, "Charizard", "Sua / Hegaldaria", 42, false);
 pokemonGehitu($pokedex, "Blastoise", "Ura", 40, false);
 pokemonGehitu($pokedex, "Venusaur", "Belarra / Pozoia", 38, false);
 
+pokemonEboluzionatuta($pokedex,true);
+pokemonEboluzionatuta($pokedex,false);
 mailaIgo($pokedex, "Charmander");
+
+PokemonAskatu($pokedex,"Raichu");
+
 pokemonEboluzionatuta($pokedex,true);
 pokemonEboluzionatuta($pokedex,false);
 ?>
