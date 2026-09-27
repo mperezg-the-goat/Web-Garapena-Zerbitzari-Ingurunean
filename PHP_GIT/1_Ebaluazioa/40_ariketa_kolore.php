@@ -11,9 +11,13 @@ $kolorea = $_GET["kolorea"];
 if(empty($kolorea)){
 echo "<h1>Ez da kolorea jaso.</h1>";
 }else{
-echo "<h1 style=background-color:$kolorea ;>Aukeratutako Kolorea: $kolorea izan da</h1>";
+echo 
+"<article style=background-color:$kolorea ;>
+<h1>Aukeratutako Kolorea: $kolorea izan da</h1>
+<a href="."40_ariketa.php".">Beste kolore bat aukeratu</a>
+</article>";
 }
 ?>  
-<a href="40_ariketa.php">Beste kolore bat aukeratu</a>
+
 </body>
 </html>

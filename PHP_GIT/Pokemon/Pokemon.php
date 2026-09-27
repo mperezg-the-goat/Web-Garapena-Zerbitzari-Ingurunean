@@ -59,7 +59,7 @@ pokemonGehitu($pokedex, "Venusaur", "Belarra / Pozoia", 38, false);
 
 pokemonEboluzionatuta($pokedex,true);
 pokemonEboluzionatuta($pokedex,false);
-mailaIgo($pokedex, "Charmander");
+mailaIgo($pokedex, "Pikachu");
 
 PokemonAskatu($pokedex,"Raichu");
 

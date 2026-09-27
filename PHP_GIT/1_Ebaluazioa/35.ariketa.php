@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="35_img/style.css/style.css">
 </head>
 <body>
     <header>
@@ -18,6 +19,17 @@
                 $emaitza=$biderzbk*$i;
                 echo"$emaitza <br>";
                     }    
+                }
+
+                function taulaSortu(){
+                echo "<h1>IRUDIAK</h1>";
+           echo '<img src="35_img/the-batman-jim-lee-arte-conceptual-redes-cover.jpg" alt="">';
+           echo "<br>";
+           echo '<img src="35_img/thumb-350-1093925.jpg" alt="">';
+           echo "<br>";
+           echo '<img src="35_img/Venoso.jpg" alt="">';
+           echo "<br>";
+           echo '<img src="35_img/ultra-ego-vegeta-dragon-ball-super-thumb.jpg" alt="">';
                 }
         ?>
     </header>
@@ -38,12 +50,13 @@
             bidertaula($biderzbk,$emaitza);
             break;
         case 3:
-            echo "3";
+            taulaSortu();
             break;
         default:
             echo "Zenbakia ez dago 0 eta 3 artean.";
             break;
     }
     ?>
+    
 </body>
 </html>
