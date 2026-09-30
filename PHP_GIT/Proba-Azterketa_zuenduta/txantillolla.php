@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="eu">
 
@@ -10,23 +14,18 @@
 
 <body>
 
-    <header>
-        <div class="goiburua">
-            <img src="img/logo.png" alt="Tx_Series logoa">
-
-            <nav>
-                <a href="txantillolla.php">Hasiera</a>
-                <a href="bilatu.php">Bilatu</a>
-                <a href="#">Seriea gehitu</a>
-                <a href="estadistika.php">Estatistikak</a>
-            </nav>
-        </div>
-    </header>
+    <?php
+    if (isset($_SESSION['user'])) {
+        include('headerLongin.php');
+    } else {
+        include('header.php');
+    }
+    ?>
 
     <main>
 
         <h1>Tx_Series</h1>
-        
+
         <section class="serieak">
 
             <?php include('funtxioak.php');
@@ -37,9 +36,14 @@
 
     </main>
 
-    <footer>
-        <p>Tx_Series - Web Garapena Zerbitzari Ingurunean</p>
-    </footer>
+    <?php
+    if (isset($_SESSION['user'])) {
+        include('footerLogin.php');
+    } else {
+        include('footer.php');
+    }
+    ?>
 
 </body>
+
 </html>

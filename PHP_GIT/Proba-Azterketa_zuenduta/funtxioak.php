@@ -61,7 +61,26 @@ echo"$amaituK";
 }
  }
 
+function batazbeste($series){
+$balioT =0;
+$fkopuru = count($series);
+foreach($series as $serie){
+   $balioT += ($serie['balorazioa']);
+   
+}
+$emaitza = $balioT/$fkopuru;
+echo number_format($emaitza,2);
+}
 
+function balorazioAltuena($series) {
+    $max = 0;
+    foreach ($series as $serie) {
+        if ($serie["balorazioa"] > $max) {
+            $max = $serie["balorazioa"];
+        }
+    }
+    echo $max;
+}
 
 function erakutsiF(){
     ?>

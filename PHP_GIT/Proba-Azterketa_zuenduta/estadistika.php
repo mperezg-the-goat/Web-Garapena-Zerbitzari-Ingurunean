@@ -1,3 +1,8 @@
+<?php
+session_start();
+?>
+
+
 <!DOCTYPE html>
 <html lang="eu">
 
@@ -10,40 +15,34 @@
 
 <body>
 
-    <header>
-        <div class="goiburua">
-            <img src="img/logo.png" alt="Tx_Series logoa">
-
-            <nav>
-                <a href="txantillolla.php">Hasiera</a>
-                <a href="bilatu.php">Bilatu</a>
-                <a href="#">Seriea gehitu</a>
-                <a href="estadistika.php">Estatistikak</a>
-            </nav>
-        </div>
-    </header>
-
-    <main>
-    <h1>Estatistikak</h1>
     <?php
-    include ('funtxioak.php');
-    require('datuak.php');
+    include('headerLongin.php');
     ?>
 
-    <h3>Serie Kopurua</h3>
-    <?php serieKopuru($series); ?>
-    <h3>Martxen dauden serieak</h3>
-    <?php martxanSerie($series); ?>
-    <h3>Bataz besteko balorazioa</h3>
-    <h3>Balorazio altuera</h3>
+    <main>
+        <h1>Estatistikak</h1>
+        <?php
+        include('funtxioak.php');
+        require('datuak.php');
+        ?>
+
+        <h3>Serie Kopurua</h3>
+        <?php serieKopuru($series); ?>
+        <h3>Martxen dauden serieak</h3>
+        <?php martxanSerie($series); ?>
+        <h3>Bataz besteko balorazioa</h3>
+        <?php batazbeste($series); ?>
+        <h3>Balorazio altuera</h3>
+        <?php balorazioAltuena($series); ?>
 
 
 
     </main>
 
-    <footer>
-        <p>Tx_Series - Web Garapena Zerbitzari Ingurunean</p>
-    </footer>
+      <?php
+    include('footerLogin.php');
+    ?>
 
 </body>
+
 </html>
