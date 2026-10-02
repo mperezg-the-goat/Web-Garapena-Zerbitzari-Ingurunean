@@ -1,16 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
-<body>
-    <?php include('headers/headerLogin.php'); ?>
+    <?php include('includes/header.php'); ?>
     <main>
-        </section>
+        </section cl>
         <article>
             <h3>Ongi etorri liburutegia!</h3>
             <h4>Aukera ezazu egin nahi duzuna:</h4>
@@ -32,8 +23,5 @@
         </article>
         <section>
     </main>
-
-    <?php include('footer/footer.php') ?>
-</body>
-
-</html>
+    <?php include('includes/footer.php'); ?>
+    
