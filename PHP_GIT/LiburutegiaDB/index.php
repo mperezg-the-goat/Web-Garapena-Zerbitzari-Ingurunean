@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once 'connection.php';
 
 $dbName = 'db_liburutegia';
@@ -14,7 +15,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
     $fila = $stmt->fetch();
 
-    if ($fila) { 
+    if ($fila) {
+        $_SESSION['user'] = $user; 
         header('Location: Logeatuda.php');
         exit; 
     } else { 

@@ -10,7 +10,7 @@ function connectDB(string $dbName): PDO {
     
     $host = '127.0.0.1';
     $user = 'root';
-    $password = 'root';  // MAMP erabiltzen dugunean password-a jarri behar da. XAMPP erabiltzean ez.
+    $password = '';  // MAMP erabiltzen dugunean password-a jarri behar da. XAMPP erabiltzean ez.
 
     $dsn = "mysql:host=$host;dbname=$dbName;charset=utf8mb4";
     $options = [

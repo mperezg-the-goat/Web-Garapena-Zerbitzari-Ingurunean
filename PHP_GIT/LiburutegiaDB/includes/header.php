@@ -22,7 +22,7 @@
                 <ul>
                     <li><a href='index.php'>Hasiera</a></li>
                     <li><a href='Liburu_berria.php'>Liburu berria</a></li>
-                    <li><a href=''>Liburuen kontsulta</a></li>
+                    <li><a href='Libururen_kontsulta.php'>Liburuen kontsulta</a></li>
                     <li><a href=''>Bilatzailea</a></li>     
                     <li><a href="Logout.php">Irten</a></li>           
                 </ul>
