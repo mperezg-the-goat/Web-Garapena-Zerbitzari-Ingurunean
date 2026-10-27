@@ -20,7 +20,7 @@ function connectDB(string $dbName): PDO {
     ];
 
     try {
-        echo "Konektatuta datu-basearekin: $dbName<br>";
+        //echo "Konektatuta datu-basearekin: $dbName<br>";
         return new PDO($dsn, $user, $password, $options);
     } catch (PDOException $e) {
         die("Errorea datu-basearekin konektatzerakoan: " . $e->getMessage());
