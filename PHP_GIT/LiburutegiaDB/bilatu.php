@@ -8,7 +8,7 @@ $pdo = connectDB($dbName);
         $autorea   = isset($_POST['autorea']) ? trim($_POST['autorea']) : '';
         $erabilgarri = isset($_POST['erabilgarri']) ? $_POST['erabilgarri'] : '';
 
-        $sql = ("SELECT * FROM liburuak WHERE 1=1");
+        $sql = "SELECT * FROM liburuak WHERE 1=1 ";
         $datuak = [];
 
         if($titulua !== ''){
@@ -21,18 +21,19 @@ $pdo = connectDB($dbName);
             $datuak[':autorea'] = '%' . $autorea . '%';
         }
 
-        if($erabilgarri === 'Bai' || $erabilgarri === 'Ez'){
-            $sql.="AND erabilgarri = :erabilgarri";
-            $datuak[':erabilgarri'] = '%' . $erabilgarri . '%';
-
+        if($erabilgarri === '1' || $erabilgarri === '0'){
+            $sql.="AND eskuragarri = :erabilgarri";
+            $datuak[':erabilgarri'] = '%' . $erabilgarri .'%';
         }
+
         $stmt = $pdo->prepare($sql);
         $stmt->execute($datuak);
         $liburuak = $stmt->fetchAll();
     }
 
 include('includes/header.php');
-global $liburuak;
+global $liburuak ,$titulua,$autorea,$erabilgarri;
+
 ?>
 <main>
     <section>
@@ -43,11 +44,12 @@ global $liburuak;
                 <label for="">Autorea</label>
                 <input type="text" name="autorea" id="autorea" value="<?= htmlspecialchars($autorea) ?>">
                 <label for="">Erabilgarria</label>
-                <input type="radio" name="erabilgarri" value="Bai" <?= $erabilgarri === 'Bai' ? 'checked' : '' ?>> Bai
-                <input type="radio" name="erabilgarri" value="Ez" <?= $erabilgarri === 'Ez' ? 'checked' : '' ?>> Ez
-                <input type="radio" name="erabilgarri" value="" <?= $erabilgarri === '' ? 'checked' : '' ?>> Guztiak
+                <input type="radio" name="erabilgarri" value="Bai" <?= $erabilgarri === '1' ?>>Bai
+                <input type="radio" name="erabilgarri" value="Ez" <?= $erabilgarri === '0' ?>>Ez 
+                <input type="radio" name="erabilgarri" value="" <?= $erabilgarri === '' ?>>Guztiak 
                 <br><br>
                 <input type="submit" value="Bilatu">
+                <br>
             </form>
 
             <table>
@@ -60,14 +62,20 @@ global $liburuak;
             </tr>
         </thead>
         <tbody>
-            <?php if (count($liburuak) > 0): ?>
+            <?php if (!empty($liburuak)): ?>
                 <?php foreach ($liburuak as $liburua): ?>
+                    <?php if($liburua['eskuragarri']=='1'){
+                         $erabilgarri ="Bai";
+                     }else{
+                        $erabilgarri ="Ez";
+                    } ?>
                     <tr>
                         <td><?= htmlspecialchars($liburua['kodea']) ?></td>
                         <td><?= htmlspecialchars($liburua['titulua']) ?></td>
                         <td><?= htmlspecialchars($liburua['autorea']) ?></td>
-                        <td><?= htmlspecialchars($liburua['erabilgarri']) ?></td>
+                        <td><?= $erabilgarri ?></td>
                     </tr>
+
                 <?php endforeach; ?>
             <?php else: ?>
                 <tr>
